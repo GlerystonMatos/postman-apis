@@ -272,6 +272,139 @@
 							"body": ""
 						}
 					]
+				},
+				{
+					"name": "exemplo novo request",
+					"id": "0ea3217b-6dca-4cc6-b2d4-d912bee228be",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Login/Authenticated",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Login",
+								"Authenticated"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3bad294c-33b8-463e-8f59-1a703d363efe",
+							"name": "Usuário autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "08903be9-2feb-4308-adc6-280d6ae0df3f",
+							"name": "Usuário não autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "e09cd04d-cddc-4406-9e17-e21ee8953aa1",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
 				}
 			],
 			"id": "6a14c22d-d0b0-45ad-b7ae-adfdc5cc8763"
