@@ -1,0 +1,5657 @@
+{
+	"info": {
+		"_postman_id": "5423749d-0abf-46a6-94e6-2b8cdbe155d7",
+		"name": "rxcrud",
+		"description": "Documentação da api do projeto rxcrud.<br/>Para usar o OData nos endpoints onde o mesmo está disponível é necessário utilizar o prefixo “OData”.<br/>A autenticação da api deve ser feita enviando o usuário e a senha para o endpoint /Login/Authenticate.<br/>Em seguida o token deve ser enviado no Header da requisição: Authorization – Bearer Token.<br/><br/>Developed by Gleryston Matos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Autenticar usuário",
+					"id": "35b0479e-5e7f-4e12-aeab-5d5c07c8ac36",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"senha\": \"consectetur do amet laborum\",\n  \"usuario\": \"amet\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Login/Authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Login",
+								"Authenticate"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "722a22de-4d8e-43a6-86aa-98ebe09e7721",
+							"name": "Usuário autenticado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"senha\": \"consectetur do amet laborum\",\n  \"usuario\": \"amet\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"token\": \"voluptate nostrud\"\n}"
+						},
+						{
+							"id": "3afc6c6b-1cb1-4bd7-9323-db095767eda7",
+							"name": "Usuário não autenticado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"senha\": \"consectetur do amet laborum\",\n  \"usuario\": \"amet\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticate"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Verificar o usuário autenticado.",
+					"id": "b93f39d2-4926-4439-ae34-4f9dcb6fdead",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Login/Authenticated",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Login",
+								"Authenticated"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "7bb81826-d1a4-4e1a-881f-20a47aa58cbc",
+							"name": "Usuário autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "81a4541d-50fa-4c30-8238-2fe20194c09c",
+							"name": "Usuário não autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "7edddc0f-d84e-497e-88ff-8a0b2d5106a9",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "6a14c22d-d0b0-45ad-b7ae-adfdc5cc8763"
+		},
+		{
+			"name": "Perfil",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Consulta por id",
+							"id": "0f34db67-7512-4735-8a13-6b2aa6f49185",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Perfil/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a0f3b6d2-50cc-49eb-b5df-6e64adaa0012",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ac315894-5647-48b5-8237-aa6e3d6c72ad",
+									"name": "Consulta realizada com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}"
+								},
+								{
+									"id": "32232e3c-1bbc-47ed-93d8-1b8fd2330b0b",
+									"name": "Não foi possível realizar a consulta.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "99c1e67e-395c-46ee-ac0c-1fa0a64c972b",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "9dc50e92-b28f-4632-897e-422d5cadb389",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Excluir",
+							"id": "206b4012-32b1-4121-8764-a355efb68c17",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Perfil/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "ed27a6a5-1cb1-4e18-b9be-551d779eba37",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "5abbf743-5aa2-40df-8e58-4e3029de6e7c",
+									"name": "Exclusão realizada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}"
+								},
+								{
+									"id": "1e56df38-bceb-4d2e-a059-2396aef4a94b",
+									"name": "Não foi possível realizar a exclusão.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "dd59e360-9d48-4f07-bf53-201aab49e017",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "70dd5f6c-2ffd-4198-8713-161fe8fa9caa",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "68316526-830d-4d89-bb3a-b4bf09097e81"
+				},
+				{
+					"name": "Consulta",
+					"id": "8a644c9b-27cf-469e-b7e7-5ae1dca19340",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Perfil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Perfil"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3e130a4b-af56-4d52-80c1-0d9b7f05e940",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"nome\": \"proident in dolor\",\n    \"id\": \"560a421d-3761-a9da-fc49-53906cf4faa5\"\n  },\n  {\n    \"nome\": \"reprehenderit Ut incididunt sit consectetur\",\n    \"id\": \"db78e180-2db4-bf68-cbbd-27191a8fc05d\"\n  }\n]"
+						},
+						{
+							"id": "cdbabfb8-b337-4951-8364-f36a797b11d2",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "0fb62664-98f1-49ea-b66f-f2c2a6a6a7c4",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Criar",
+					"id": "d6671c62-1218-4194-8e50-af19af5172d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Perfil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Perfil"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6fea3f94-8ac0-4530-9015-540ecb2a7260",
+							"name": "Criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "f01cda4f-b4e3-4bc3-a7a7-b6c539ac063c",
+							"name": "Não foi possível criar.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "78dfc0c0-76e3-465f-94b3-536b90d53ff7",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Atualizar",
+					"id": "0a614a1f-998c-4606-8947-385b85d102f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Perfil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Perfil"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "20cb1840-b9f3-4357-a541-77b9d7db42b6",
+							"name": "Atualizado com sucesso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "8b1f5383-40a6-437a-839f-8470eb107e25",
+							"name": "Não foi possível atualizar.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "817e3155-357d-4400-92d1-aa9d6fb5baee",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "18df262c-fdf6-4703-a6ff-aa00d5389902",
+							"name": "Não localizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"Excepteur\",\n  \"id\": \"urn:uuid:768e4056-ea72-cccd-d8ed-48a192014f40\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Perfil",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Perfil"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "c576f264-ad74-4e80-af58-aeaf0c6fe02c"
+		},
+		{
+			"name": "Perfil Permissao",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Consulta por id",
+							"id": "c8ebded8-1980-4d1f-a6ff-ebe387873742",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "fe318443-5391-4778-bbf1-be07826b3085",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "3ab28215-00b6-4f02-80bb-da50af91bb2c",
+									"name": "Consulta realizada com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}"
+								},
+								{
+									"id": "607e178c-b7b9-4a48-b5fd-9977a7689da4",
+									"name": "Não foi possível realizar a consulta.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "8dceac3b-958d-4906-b5b5-92fe1ce069e0",
+									"name": "PerfilPermissao não autorizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "73e4fa27-3783-472c-be1d-efb0d01e4fb8",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Excluir",
+							"id": "30780b61-c894-462f-9992-de9fc8942629",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "c539675a-56c6-44aa-83a7-a9caf489dc7c",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "5dc9f01b-8187-4b1d-a1f4-99f7420a7432",
+									"name": "Exclusão realizada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}"
+								},
+								{
+									"id": "8b03888d-c673-4b0d-b36a-4214d9f3a9fe",
+									"name": "Não foi possível realizar a exclusão.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "f46537a5-ee6e-425f-9455-696f99c6fda6",
+									"name": "PerfilPermissao não autorizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "2c0bd52a-5d33-4f63-aabe-ac276d18cb23",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "8e8080c6-5ab8-40b8-935c-8ea7a72e7756"
+				},
+				{
+					"name": "Perfil",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Consulta todos por id do perfil",
+									"id": "80052c18-6da3-46e1-a4e9-267b970ac966",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "e5f54953-7581-468e-a6af-5d8e278e67e6",
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "7aeeb8de-fce3-450f-bf9a-977d0cd7b2e0",
+											"name": "Consulta realizada com sucesso.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}"
+										},
+										{
+											"id": "29052b65-2fb4-4ec5-a6d3-62315ea854e9",
+											"name": "Não foi possível realizar a consulta.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+										},
+										{
+											"id": "05779566-5f8e-4c62-a049-6d9df4074157",
+											"name": "PerfilPermissao não autorizado.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": ""
+										},
+										{
+											"id": "006cf270-a954-41d3-83ad-5fa77e788ded",
+											"name": "Não localizado.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Exclui todos os perfilPermissaos pelo id do perfil",
+									"id": "b26400e5-3804-4bf8-8bcd-16c8829e705d",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												"Perfil",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "005fa7c3-4fd5-429d-bcf2-aca93171ca14",
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "070d975b-442d-4645-a07b-28cd00f1b366",
+											"name": "Exclusão realizada com sucesso.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}"
+										},
+										{
+											"id": "09219b4b-4a04-478e-b136-7f8d7fb8082d",
+											"name": "Não foi possível realizar a exclusão.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+										},
+										{
+											"id": "ab4acdea-0062-4a7f-af8e-76172a748e15",
+											"name": "PerfilPermissao não autorizado.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: apikey",
+														"key": "Authorization",
+														"value": "<API Key>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"PerfilPermissao",
+														"Perfil",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "f1a17209-e0a5-4fae-840b-98496b9de179"
+						},
+						{
+							"name": "Exclui o perfilPermissao pelo id do perfil e do direito",
+							"id": "066aba79-9c6b-4677-bbd5-c07420533702",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:idPerfil/Permissao/:idPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"Perfil",
+										":idPerfil",
+										"Permissao",
+										":idPermissao"
+									],
+									"variable": [
+										{
+											"id": "109dca61-e21c-4226-8c69-0fbda18ca64b",
+											"key": "idPerfil",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										},
+										{
+											"id": "fd55af65-b2db-43fd-a6e3-9dbd4759945b",
+											"key": "idPermissao",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "bafc1b20-9042-4d50-8333-d3d5064d4f93",
+									"name": "Exclusão realizada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:idPerfil/Permissao/:idPermissao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												"Perfil",
+												":idPerfil",
+												"Permissao",
+												":idPermissao"
+											],
+											"variable": [
+												{
+													"key": "idPerfil",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												},
+												{
+													"key": "idPermissao",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}"
+								},
+								{
+									"id": "32af0433-cd3f-4d24-bbc8-1507f7d56552",
+									"name": "Não foi possível realizar a exclusão.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:idPerfil/Permissao/:idPermissao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												"Perfil",
+												":idPerfil",
+												"Permissao",
+												":idPermissao"
+											],
+											"variable": [
+												{
+													"key": "idPerfil",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												},
+												{
+													"key": "idPermissao",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "98237579-cac5-4efc-b3a3-9896f8515981",
+									"name": "PerfilPermissao não autorizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilPermissao/Perfil/:idPerfil/Permissao/:idPermissao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilPermissao",
+												"Perfil",
+												":idPerfil",
+												"Permissao",
+												":idPermissao"
+											],
+											"variable": [
+												{
+													"key": "idPerfil",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												},
+												{
+													"key": "idPermissao",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "932ecf2e-bf69-4c54-97dd-a922a988872d"
+				},
+				{
+					"name": "Consulta",
+					"id": "05b04710-2296-4fc3-894b-7c50883f8647",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "79d7b5a6-e22b-4cce-85a0-1191b3edaca6",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"idPerfil\": \"0e9e6504-2843-2df0-dc9d-0abb682ac017\",\n    \"idPermissao\": \"urn:uuid:6b537803-3f60-c8da-0fd3-c96e997ee6c8\",\n    \"id\": \"d3ba2058-4f8b-9a6f-e404-0fe11ae829f6\",\n    \"perfil\": {\n      \"nome\": \"minim Lorem\",\n      \"id\": \"urn:uuid:a3a9f0d1-ed44-2089-6537-aacd4b702373\"\n    },\n    \"permissao\": {\n      \"chave\": \"minim voluptate exercitation\",\n      \"grupo\": \"consectetur nostrud\",\n      \"nome\": \"consectetur deserunt cillum\",\n      \"ordem\": \"ullamco magna velit consectetur\",\n      \"id\": \"a2497bc7-a61b-a6d1-dfa0-75d3a999293b\"\n    }\n  },\n  {\n    \"idPerfil\": \"32f1b81f-f244-9126-e8fd-f11a6575529b\",\n    \"idPermissao\": \"9cf95770-0196-964f-7586-9d95967a613f\",\n    \"id\": \"urn:uuid:744f80ab-c51e-b9a7-6937-2feac766e128\",\n    \"perfil\": {\n      \"nome\": \"adipisicing qui ut do magna\",\n      \"id\": \"00917ee0-3c5a-603e-d026-5154c36fb34b\"\n    },\n    \"permissao\": {\n      \"chave\": \"reprehenderit cupidatat in\",\n      \"grupo\": \"n\",\n      \"nome\": \"enim\",\n      \"ordem\": \"officia\",\n      \"id\": \"urn:uuid:eedc8f9d-02c3-d56c-6e02-f2983041fdef\"\n    }\n  }\n]"
+						},
+						{
+							"id": "66a95350-a7e2-4433-bade-1d8b3b144b55",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "b8d5109f-229c-47bf-8ab0-b02db2879d5c",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Criar",
+					"id": "c9cec1e4-2682-4e3a-a271-6fe58beb30e9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4b50a5f9-923a-499b-9fc6-4e4fd07dec06",
+							"name": "Criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "2e4a6f5e-cc31-42c2-a3e0-28ff616c906b",
+							"name": "Não foi possível criar.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "9cdfc788-59a7-44aa-9e80-a43dda9b3993",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:db74fad5-4271-388a-c5a6-1c0ebefb5ea3\",\n  \"idPermissao\": \"ac1340f7-8b8e-ba87-4985-0a8a2eff36b6\",\n  \"id\": \"urn:uuid:b56e0223-e3ab-1157-3358-041d07b7113f\",\n  \"perfil\": {\n    \"nome\": \"Lorem dolore\",\n    \"id\": \"urn:uuid:a41d0321-bace-0d5e-1da4-6596af266ac5\"\n  },\n  \"permissao\": {\n    \"chave\": \"et do elit non\",\n    \"grupo\": \"sit Duis nulla Lorem\",\n    \"nome\": \"aliquip veniam ex\",\n    \"ordem\": \"dolor in\",\n    \"id\": \"urn:uuid:e0715820-11f2-f5f3-a640-3b50826758a7\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Criar em lote",
+					"id": "500f3971-c676-4c11-af4a-d2134ebe43e6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPerfil\": \"baf282e6-291a-7748-f65c-b4fce6f1f964\",\n  \"permissoes\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao/CriarEmLote",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao",
+								"CriarEmLote"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5efdb517-c6ca-4c50-aac3-94b769943be5",
+							"name": "Criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/CriarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"CriarEmLote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "58cc7a40-7e55-40da-be12-8c83fb79d743",
+							"name": "Não foi possível criar.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/CriarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"CriarEmLote"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "8306c784-426c-47c2-8a2d-88e9683ff296",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/CriarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"CriarEmLote"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Atualizar em lote",
+					"id": "19f4ec06-87c6-486a-b6f6-396dd580c59e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao/AtualizarEmLote",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao",
+								"AtualizarEmLote"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e07295c2-86b6-44b6-a601-939f48bec354",
+							"name": "Atualizado com sucesso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/AtualizarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"AtualizarEmLote"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "6756f8da-0382-4c6f-88b9-415098fcc10a",
+							"name": "Não foi possível atualizar.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/AtualizarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"AtualizarEmLote"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "5709d119-41c9-4a38-8c02-10aecde1dafa",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"9f2aa611-2d01-c6a9-5f5f-ec4e46edb276\",\n  \"permissoes\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/AtualizarEmLote",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"AtualizarEmLote"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Consulta. Retorna a quantidade total de perfis distintos entre as configurações de perfilPermissaos.",
+					"id": "c2174905-1008-4cbf-81a6-ac08191019bf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinctCount",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao",
+								"PerfilDistinctCount"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c808a6b3-0476-4dde-b4db-4ef7796544be",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinctCount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinctCount"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"idPerfil\": \"0e9e6504-2843-2df0-dc9d-0abb682ac017\",\n    \"idPermissao\": \"urn:uuid:6b537803-3f60-c8da-0fd3-c96e997ee6c8\",\n    \"id\": \"d3ba2058-4f8b-9a6f-e404-0fe11ae829f6\",\n    \"perfil\": {\n      \"nome\": \"minim Lorem\",\n      \"id\": \"urn:uuid:a3a9f0d1-ed44-2089-6537-aacd4b702373\"\n    },\n    \"permissao\": {\n      \"chave\": \"minim voluptate exercitation\",\n      \"grupo\": \"consectetur nostrud\",\n      \"nome\": \"consectetur deserunt cillum\",\n      \"ordem\": \"ullamco magna velit consectetur\",\n      \"id\": \"a2497bc7-a61b-a6d1-dfa0-75d3a999293b\"\n    }\n  },\n  {\n    \"idPerfil\": \"32f1b81f-f244-9126-e8fd-f11a6575529b\",\n    \"idPermissao\": \"9cf95770-0196-964f-7586-9d95967a613f\",\n    \"id\": \"urn:uuid:744f80ab-c51e-b9a7-6937-2feac766e128\",\n    \"perfil\": {\n      \"nome\": \"adipisicing qui ut do magna\",\n      \"id\": \"00917ee0-3c5a-603e-d026-5154c36fb34b\"\n    },\n    \"permissao\": {\n      \"chave\": \"reprehenderit cupidatat in\",\n      \"grupo\": \"n\",\n      \"nome\": \"enim\",\n      \"ordem\": \"officia\",\n      \"id\": \"urn:uuid:eedc8f9d-02c3-d56c-6e02-f2983041fdef\"\n    }\n  }\n]"
+						},
+						{
+							"id": "c7a72459-b0f6-4d6c-b9ab-5be2436a3d01",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinctCount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinctCount"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "11dfccb3-a5f9-4ff2-956b-749b79ddac18",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinctCount",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinctCount"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Consulta. Retorna uma lista dos perfis distintos entre as configurações de perfilPermissao.\r\nÉ possível informar a quantidade de registros que devem ser pulados e quantidade que devem ser retornados (levar).",
+					"id": "d0900328-3149-458e-8dd7-e3802e74d65f",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinct/:pular/:levar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilPermissao",
+								"PerfilDistinct",
+								":pular",
+								":levar"
+							],
+							"variable": [
+								{
+									"id": "ff8d3b50-b1b1-493b-a603-9d9e802f0293",
+									"key": "pular",
+									"value": "-87521028",
+									"description": "(Required) "
+								},
+								{
+									"id": "e3f4ae68-80d8-48d6-8750-82f73015e613",
+									"key": "levar",
+									"value": "-87521028",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "75b4ee28-3abf-4851-aecd-839e51f2c796",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinct/:pular/:levar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinct",
+										":pular",
+										":levar"
+									],
+									"variable": [
+										{
+											"key": "pular",
+											"value": "-87521028",
+											"description": "(Required) "
+										},
+										{
+											"key": "levar",
+											"value": "-87521028",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"nome\": \"proident in dolor\",\n    \"id\": \"560a421d-3761-a9da-fc49-53906cf4faa5\"\n  },\n  {\n    \"nome\": \"reprehenderit Ut incididunt sit consectetur\",\n    \"id\": \"db78e180-2db4-bf68-cbbd-27191a8fc05d\"\n  }\n]"
+						},
+						{
+							"id": "a6738429-73fd-4a00-988a-8f091529b0f2",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinct/:pular/:levar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinct",
+										":pular",
+										":levar"
+									],
+									"variable": [
+										{
+											"key": "pular",
+											"value": "-87521028",
+											"description": "(Required) "
+										},
+										{
+											"key": "levar",
+											"value": "-87521028",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "67735c3f-e464-41da-979b-1d1f47d7f4c1",
+							"name": "PerfilPermissao não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilPermissao/PerfilDistinct/:pular/:levar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilPermissao",
+										"PerfilDistinct",
+										":pular",
+										":levar"
+									],
+									"variable": [
+										{
+											"key": "pular",
+											"value": "-87521028",
+											"description": "(Required) "
+										},
+										{
+											"key": "levar",
+											"value": "-87521028",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "4fdc9d90-7f1e-4ff7-aae4-d1d45d86ee76"
+		},
+		{
+			"name": "Perfil Usuario",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Consulta por id",
+							"id": "efcfa51a-ebe1-446a-afe8-4b5ecd079795",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "8363721f-a2d2-4cc2-acc0-ad8906989b46",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a532f3af-96af-49ba-a0f4-439176221e1a",
+									"name": "Consulta realizada com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}"
+								},
+								{
+									"id": "fbe5b9df-a238-4e4c-93be-1191408253fb",
+									"name": "Não foi possível realizar a consulta.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "959a8353-87c4-43c9-bad8-b1ea028d7a26",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "4795d181-bb9f-4ecf-b717-6dd6f9cc2107",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Excluir",
+							"id": "71c5fddd-9ada-4cf1-af2e-6f116b7761b3",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "35ad3c8e-11d1-4a28-8215-f47c414479a7",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "bcdc126b-04ab-4d1d-a1b9-76ff56b1e131",
+									"name": "Exclusão realizada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}"
+								},
+								{
+									"id": "8a866aac-564a-4392-ba9d-61331842fcb9",
+									"name": "Não foi possível realizar a exclusão.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "1e41884e-25cb-48c5-9ebd-11fc55147c30",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "40ad2fac-f756-4579-b387-485fe8e9932a",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/PerfilUsuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"PerfilUsuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "794e98d9-2db0-4cdc-9d01-7f21f6fe17c7"
+				},
+				{
+					"name": "Consulta",
+					"id": "71a7f3ae-e21b-4129-9ae8-7c3ceac4ba62",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/PerfilUsuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilUsuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3b9b2ee9-a965-441d-bc17-9c4866acf818",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"idPerfil\": \"418e25df-e94f-d6d8-c1c4-4b9da66ff596\",\n    \"idUsuario\": \"urn:uuid:9f6addb4-597a-d6ed-2a02-b324cc5513f0\",\n    \"id\": \"31337811-1690-09f8-fe52-8f2358de4897\",\n    \"perfil\": {\n      \"nome\": \"anim veniam sit laboris\",\n      \"id\": \"80a30c36-4e8e-ef1d-5ebf-2e5ba101b5e7\"\n    },\n    \"usuario\": {\n      \"email\": \"amet et consectetur\",\n      \"nome\": \"eiusmod ut\",\n      \"nomeAcesso\": \"ut in occaecat reprehenderit\",\n      \"senha\": \"velit incididunt\",\n      \"id\": \"c9bfe8e1-1c49-60ef-eb81-2c03e12aa901\",\n      \"perfis\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  },\n  {\n    \"idPerfil\": \"b18a0e70-d386-55c3-7149-60a645fd243b\",\n    \"idUsuario\": \"urn:uuid:14182e86-3d90-1101-4592-152a38142099\",\n    \"id\": \"urn:uuid:6b0f7f22-fb80-cc13-3200-e4e71cad058d\",\n    \"perfil\": {\n      \"nome\": \"dolor dolor\",\n      \"id\": \"dbf51c2e-da86-760b-ffec-3b56de930de1\"\n    },\n    \"usuario\": {\n      \"email\": \"ex irure sunt adipisicing do\",\n      \"nome\": \"incididunt labore officia\",\n      \"nomeAcesso\": \"exercitation nisi incididunt\",\n      \"senha\": \"aute cupidatat enim laboris nisi\",\n      \"id\": \"59f8c989-48cd-0a24-56fa-68c7ad541374\",\n      \"perfis\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  }\n]"
+						},
+						{
+							"id": "2d468466-5f02-45eb-a195-4e8b84e4d6f5",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "44b89a21-7585-47ba-8ea8-d2c94a38a30a",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Criar",
+					"id": "c56ecf7e-c0bf-42f3-b1f5-b1b592d63b95",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/PerfilUsuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilUsuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5869d674-0ed8-442b-aba4-b105a6364654",
+							"name": "Criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "cc845e1c-f7d3-40fb-91f4-8d1f1a9a0512",
+							"name": "Não foi possível criar.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "a4b6014a-9a97-4933-857e-46634d598cd3",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Atualizar",
+					"id": "17089e3a-30bd-471a-ad2f-bf51fba85219",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/PerfilUsuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilUsuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8d6a87e9-94f6-4ec1-8120-f8b6359e1225",
+							"name": "Atualizado com sucesso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "302309d9-ec29-4b38-9297-034bf8b301ac",
+							"name": "Não foi possível atualizar.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "573f92aa-75e8-4268-a57b-0408a972872b",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "885bd6e4-b62e-48fe-97a1-ad5981e2d5f8",
+							"name": "Não localizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Consulta todos por id do usuário",
+					"id": "cc1af37f-d0b6-4552-813e-f18bb4aece1b",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/PerfilUsuario/Usuario/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"PerfilUsuario",
+								"Usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "fb995183-18c8-4bff-a636-5bea41ebe487",
+									"key": "id",
+									"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6f1de099-fb2c-4326-a7e2-0b7ad5c13d86",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"idPerfil\": \"urn:uuid:d2013745-b17a-5683-4290-39fdba5d4721\",\n  \"idUsuario\": \"urn:uuid:e0245ab0-2d18-4cb9-4b5f-4eddc330576d\",\n  \"id\": \"urn:uuid:d70d6bd3-32eb-2d33-a68e-28c78b4c7198\",\n  \"perfil\": {\n    \"nome\": \"cupidatat amet sed labore\",\n    \"id\": \"urn:uuid:195a2d7e-ffda-b3a1-a46c-02589442bd58\"\n  },\n  \"usuario\": {\n    \"email\": \"in do\",\n    \"nome\": \"velit aliquip\",\n    \"nomeAcesso\": \"id\",\n    \"senha\": \"ex\",\n    \"id\": \"urn:uuid:3a69f04f-ab34-52ac-435f-7fe813ac5d87\"\n  }\n}"
+						},
+						{
+							"id": "2a4506c6-9513-4c84-8a5b-83b5140a894f",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "958f1fe5-701c-4a15-bff4-fde8b89a314d",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "f7fe39cf-9fdf-465c-b9a7-a54ad565ae3b",
+							"name": "Não localizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/PerfilUsuario/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"PerfilUsuario",
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "9616d072-58f2-4d3a-a723-0061f1f5fe79"
+		},
+		{
+			"name": "Permissao",
+			"item": [
+				{
+					"name": "Consulta",
+					"id": "0cc79dfa-840f-4221-a4cb-8218ccbef8fe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Permissao",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Permissao"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c2abb810-8bf7-4025-a1eb-4c84f63af9dd",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"chave\": \"tempor\",\n    \"grupo\": \"reprehenderit in dolore\",\n    \"nome\": \"est Duis\",\n    \"ordem\": \"amet in\",\n    \"id\": \"fe0d3555-c758-80e4-5267-2ebca10e3e08\"\n  },\n  {\n    \"chave\": \"amet\",\n    \"grupo\": \"eiusmod nulla deserunt\",\n    \"nome\": \"enim esse veniam consectetur\",\n    \"ordem\": \"sint in occaecat\",\n    \"id\": \"d563a826-1e60-655f-81af-76c2682ea9b4\"\n  }\n]"
+						},
+						{
+							"id": "0473c60b-aa06-4099-8c37-2678ea2e7426",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "5bc89233-e6bc-4f5c-9bb5-9070c2cc2f44",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Consulta por id",
+					"id": "0c0e71d1-c531-4008-b36e-4b8464ea0725",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Permissao/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Permissao",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "8c5b8d11-7be0-4a66-bf28-d85de3670928",
+									"key": "id",
+									"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4a5d768f-e252-4929-bac3-07e9468decc7",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"chave\": \"magna mollit\",\n  \"grupo\": \"cillum sint consequat ex anim\",\n  \"nome\": \"proident minim nulla\",\n  \"ordem\": \"incididunt et\",\n  \"id\": \"urn:uuid:ac1ce887-caac-f02e-60de-bcb080af8490\"\n}"
+						},
+						{
+							"id": "4e51aa1b-2770-4643-841f-29ff7eefcb46",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "cd6db479-efce-4d54-aedf-0df85769fbaa",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "6ecc9300-33d6-4812-a416-4779b914ee93",
+							"name": "Não localizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Permissao/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Permissao",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "e9cc88be-1414-47c9-ab6c-7f64dbb3a2ee"
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Consulta por id",
+							"id": "b5c3afe5-5116-4c45-b7bf-c70158ed0438",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "cc9fca73-8d3c-4761-8fe0-3812a47fef73",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e5d3bee7-e556-4411-9020-df87200f01c3",
+									"name": "Consulta realizada com sucesso.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}"
+								},
+								{
+									"id": "f58e4d1d-7996-475b-9745-3b54476103d9",
+									"name": "Não foi possível realizar a consulta.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "6152d4bc-e5ae-4be7-838c-1852f280968f",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "f06843bd-4e63-4c97-b953-4d0e95194032",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Excluir",
+							"id": "cd73317e-3299-4107-bd52-8092cde5c26d",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Usuario/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "1cd41842-4b28-460d-be59-5c2f9927f833",
+											"key": "id",
+											"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "38563839-7581-4587-bbcf-e81f57dc99b2",
+									"name": "Exclusão realizada com sucesso.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}"
+								},
+								{
+									"id": "1cbf5128-3b7a-49d3-af92-8d6bb4eb4577",
+									"name": "Não foi possível realizar a exclusão.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+								},
+								{
+									"id": "6d9225b9-2f31-406d-96da-23eed8e34943",
+									"name": "Acesso não autorizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								},
+								{
+									"id": "4df42751-edca-48c8-a796-97b58efbbb5d",
+									"name": "Não localizado.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: apikey",
+												"key": "Authorization",
+												"value": "<API Key>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Usuario/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Usuario",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:fa334415-1082-3577-b1f9-717de15382c8",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "e5c97839-a1c3-4be9-8fcb-6d2545885cfd"
+				},
+				{
+					"name": "Consulta",
+					"id": "f5807f86-439c-4cf6-aafe-aac64456cda7",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Usuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0e28269d-c8ae-42ed-a0fd-279888abe7c1",
+							"name": "Consulta realizada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[\n  {\n    \"email\": \"minim eu\",\n    \"nome\": \"minim occaecat\",\n    \"nomeAcesso\": \"nisi ut esse non in\",\n    \"senha\": \"nostrud amet\",\n    \"id\": \"urn:uuid:3960fc98-fc7a-c858-2365-14546216c110\"\n  },\n  {\n    \"email\": \"reprehenderit pariatur\",\n    \"nome\": \"cillum\",\n    \"nomeAcesso\": \"incididunt officia commodo\",\n    \"senha\": \"do tempor\",\n    \"id\": \"9fbca794-12d8-2546-5497-f783382647bc\"\n  }\n]"
+						},
+						{
+							"id": "abada096-5203-482a-aed9-da10f460d1dd",
+							"name": "Não foi possível realizar a consulta.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "f5a7df62-e4cc-41fd-987f-b15b75a9e3e2",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Criar.\r\nCaso seja passado um array com id’s dos perfis que o usuário deve possuir os mesmos serão incluídos no usuário criado.\r\nCaso não seja passado nada será feito.",
+					"id": "1391a8c7-6a57-42f4-baef-acfee47fa9e4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Usuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b7ac4b50-8524-4506-bda8-e2b46d58416b",
+							"name": "Criado com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "9dc394ef-4446-4a90-8481-367332e190f0",
+							"name": "Não foi possível criar.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "b9352d82-5572-437c-98ae-8c8118e95be1",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Atualizar.\r\nCaso seja passado um array com id’s dos perfis que o usuário deve possuir, todos os perfis atuais serão removidos e os novos serão incluídos.\r\nCaso não seja passado nada será feito.",
+					"id": "52ebe61f-8aa2-4a9a-a243-05c3170f4fc0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Usuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3c53a111-7849-4c8e-aa06-54b7d5500cec",
+							"name": "Atualizado com sucesso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "9b676ef2-a028-40ee-8573-83ca8b28d79d",
+							"name": "Não foi possível atualizar.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"mollit voluptate cillum\"\n}"
+						},
+						{
+							"id": "ef8b5b2a-8ce7-49c0-82fe-c42d29400035",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "6e3b9dbb-b7e4-4ba8-aab2-ed78062d492d",
+							"name": "Não localizado.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"et\",\n  \"nome\": \"voluptate est ex aute sit\",\n  \"nomeAcesso\": \"ullamco voluptate nostrud in\",\n  \"senha\": \"in nisi Lorem\",\n  \"id\": \"f2a33851-ed88-117e-88f1-fde6d6bf4747\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Usuario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Usuario"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "b3790ebf-df99-40d5-9144-c3effbc10e4c"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "<API Key>",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "5e5f2d30-1f96-43cb-9239-8a95bc766826",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
