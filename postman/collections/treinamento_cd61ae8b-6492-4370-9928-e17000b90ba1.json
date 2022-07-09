@@ -272,6 +272,139 @@
 							"body": ""
 						}
 					]
+				},
+				{
+					"name": "Verificar o usuário nao autenticado",
+					"id": "49acf2a1-43d0-4d12-9317-c62d26e05906",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Login/Authenticated",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Login",
+								"Authenticated"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e265d372-48c5-4835-a14e-9d8eaaf707dc",
+							"name": "Usuário autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"id in occaecat\"\n}"
+						},
+						{
+							"id": "7441713a-578e-4fb9-8319-3b3e01b3e5d2",
+							"name": "Usuário não autenticado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;odata.metadata=minimal;odata.streaming=true"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"mensagem\": \"id in occaecat\"\n}"
+						},
+						{
+							"id": "9ac669a2-9678-460d-a409-69ae37e2c6ad",
+							"name": "Acesso não autorizado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: apikey",
+										"key": "Authorization",
+										"value": "<API Key>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Login/Authenticated",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Login",
+										"Authenticated"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
 				}
 			],
 			"id": "53d56703-e966-4132-86be-607162851918"
